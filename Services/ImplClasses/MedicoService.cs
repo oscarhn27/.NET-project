@@ -54,6 +54,8 @@ namespace Services.ImplClasses
 
         public void DeleteMedicoById(int idMedico)
         {
+            if (!_medicoRepository.Exist(idMedico))
+                throw new Exception("El medico no existe");
             Medico m = GetMedicoById(idMedico);
             _medicoRepository.Remove(m);
         }

@@ -28,6 +28,8 @@ namespace Services.ImplClasses
 
         public void DeletePacienteById(int idPaciente)
         {
+            if (!_pacienteRepository.Exist(idPaciente))
+                throw new Exception("El paciente no existe");
             _pacienteRepository.Remove(GetPacienteById(idPaciente));
         }
 

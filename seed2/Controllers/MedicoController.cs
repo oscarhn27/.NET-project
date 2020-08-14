@@ -45,18 +45,34 @@ namespace seed2.Controllers
         // POST: /Medico/AddMedico
         [HttpPost("[action]")]
         [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         public IActionResult AddMedico([FromBody] Medico m)
         {
-            _medicoService.AddMedico(m);
+            try
+            {
+                _medicoService.AddMedico(m);
+            } catch(NHibernate.Exceptions.GenericADOException e)
+            {
+                return Conflict(e.Message);
+            }
+            
             return Created("El medico ha sido creado", m);
         }
 
         // PUT: /Medico/UpdateMedico
         [HttpPut("[action]")]
         [ProducesResponseType(StatusCodes.Status202Accepted)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult UpdateMedico([FromBody] Medico m)
         {
-            _medicoService.UpdateMedico(m);
+            try
+            {
+                _medicoService.UpdateMedico(m);
+            }
+            catch(NHibernate.StaleObjectStateException e)
+            {
+                return NotFound("El medico a modificar no se encontro");
+            }            
             return Accepted(m);
 
         }
@@ -64,9 +80,16 @@ namespace seed2.Controllers
         // DELETE: /Medico/DeleteMedico
         [HttpDelete("[action]/{IdMedico}")]
         [ProducesResponseType(StatusCodes.Status202Accepted)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         public IActionResult DeleteMedico([FromRoute] int IdMedico)
         {
-            _medicoService.DeleteMedicoById(IdMedico);
+            try
+            {
+                _medicoService.DeleteMedicoById(IdMedico);
+            } catch(Exception e)
+            {
+                return Conflict(e.Message);
+            }
             return Accepted();
 
         }
