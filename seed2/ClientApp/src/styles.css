@@ -1,0 +1,118 @@
+fieldset.schedulerborder {
+  border: 2px solid rgb(230, 230, 230) !important;
+  box-shadow: 0px 0px 0px 0px #000;
+  padding: 1rem;
+}
+
+.div_centro {
+  margin: auto;
+  width: 100%;
+}
+
+.align_screen {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.option-menu {
+  padding: 36px;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #e2e2e2;
+  text-align: center;
+}
+
+.header-in-body {
+  padding: 1%;
+  background-color: #eaeaea;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.header-in-body-no-color {
+  padding: 1%;
+}
+
+.full {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.full-horizontal {
+  width: 85%;
+}
+
+.col-20porcent {
+  width: 15%;
+}
+
+.slide-menu {
+  margin-right: 2%;
+  margin-left: 2%;
+  width: 30%;
+}
+
+.form-body {
+  width: 70%;
+}
+
+.other-form-right {
+  width: 20%;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+.data-panel {
+  margin-top: 1%;
+}
+
+.space-panels {
+  margin-bottom: 4%;
+}
+
+.option-data-toogle {
+  padding: 28px;
+  background-color: #f0f1f4;
+  border-bottom: 1px solid #e2e2e2;
+  text-align: center;
+}
+
+.btn-save-form {
+  background-color: rgb(36, 184, 228);
+  color: #fff;
+  width: 100%;
+  padding: 2%;
+}
+
+.option-data-font {
+  padding: 20px;
+  background-color: #f0f1f4;
+  border-bottom: 1px solid #e2e2e2;
+  text-align: center;
+}
+
+.bar-bottom {
+  margin-right: 5%;
+  margin-left: 5%;
+  text-align: center;
+}
+
+.fa {
+  font-size: x-large !important;
+}
+
+a {
+  color: #212529;
+}
+
+  a:hover {
+    color: #212529;
+    text-decoration: none;
+  }
+
+hr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+}
