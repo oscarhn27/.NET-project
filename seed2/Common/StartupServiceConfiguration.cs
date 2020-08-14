@@ -23,6 +23,7 @@ namespace Aquaservice.Common
 
             //Registrar aqui todos los tipos a ser interceptados
             containerBuilder.RegisterType<MedicoService>().As<IMedicoService>().EnableInterfaceInterceptors().InterceptedBy(typeof(TransactionalInterceptor));
+            containerBuilder.RegisterType<PacienteService>().As<IPacienteService>().EnableInterfaceInterceptors().InterceptedBy(typeof(TransactionalInterceptor));
 
             var interceptor = new TransactionalInterceptor();
             containerBuilder.RegisterInstance(interceptor);

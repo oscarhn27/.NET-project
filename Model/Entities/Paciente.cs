@@ -36,5 +36,14 @@ namespace Model.Entities
             Medicos = new HashSet<Medico>();
             Citas = new HashSet<Cita>();
         }
+
+        public Paciente(string nombre, string apellidos, string usuario, string clave, string NSS, string NumTarjeta, string Direccion, string Telefono)
+            : base(nombre, apellidos, usuario, clave)
+        {
+            this.NSS = NSS;
+            this.NumTarjeta = NumTarjeta;
+            this.Direccion = Direccion;
+            this.Telefono = Telefono;
+        }
     }
 }

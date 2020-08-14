@@ -58,6 +58,8 @@ namespace Aquaservice
 
             services.AddScoped<IMedicoService, MedicoService>();
             services.AddScoped<IMedicoRepository, MedicoRepository>();
+            services.AddScoped<IPacienteService, PacienteService>();
+            services.AddScoped<IPacienteRepository, PacienteRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             var jwtSettingsSection = Configuration.GetSection("JWTSettings");

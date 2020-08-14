@@ -33,8 +33,8 @@ namespace Model.Entities
             Pacientes = new HashSet<Paciente>();
             Citas = new HashSet<Cita>();
         }
-        public Medico(string nombre, string apellidos, string usario, string clave, string numColegiado)
-            : base(nombre, apellidos, usario, clave)
+        public Medico(string nombre, string apellidos, string usuario, string clave, string numColegiado)
+            : base(nombre, apellidos, usuario, clave)
         {
             NumColegiado = numColegiado;
             Pacientes = new HashSet<Paciente>();

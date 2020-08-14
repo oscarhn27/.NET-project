@@ -23,6 +23,10 @@ namespace Model.DTOs
         
         public virtual string Direccion { get; set; }
 
+        public virtual ISet<MedicoDTO2> Medicos { get; set; }
+        public virtual ISet<CitaDTO> Citas { get; set; }
+
+
         public PacienteDTO(){ }
      
     }

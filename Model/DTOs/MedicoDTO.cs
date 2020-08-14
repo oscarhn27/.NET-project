@@ -15,7 +15,7 @@ namespace Model.DTOs
        
         public virtual ISet<CitaDTO> Citas { get; set; }
 
-        //public virtual ISet<PacienteDTO2> Pacientes { get; set; }
+        public virtual ISet<PacienteDTO2> Pacientes { get; set; }
 
         public MedicoDTO() { }
     }

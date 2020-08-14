@@ -26,5 +26,12 @@ namespace Model.Entities
         {
 
         }
+
+        public Diagnostico(string ValoracionEspecialista, string Enfermedad, Cita Cita)
+        {
+            this.ValoracionEspecialista = ValoracionEspecialista;
+            this.Enfermedad = Enfermedad;
+            this.Cita = Cita;
+        }
     }
 }
