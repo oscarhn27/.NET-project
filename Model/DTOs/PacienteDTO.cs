@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace Model.DTOs
 {
-    public class PacienteDTO// : UsuarioDTO
+    public class PacienteDTO : UsuarioDTO
     {
-        public virtual int IdUsuario { get; set; }
-        public virtual string Nombre { get; set; }
-        public virtual string Apellidos { get; set; }
-        public virtual string User { get; set; }
-        public virtual string Clave { get; set; }
 
         public virtual string NSS { get; set; }
         
