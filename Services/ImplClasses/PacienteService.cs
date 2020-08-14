@@ -26,6 +26,11 @@ namespace Services.ImplClasses
             _pacienteRepository.Add(p);
         }
 
+        public void DeletePacienteById(int idPaciente)
+        {
+            _pacienteRepository.Remove(GetPacienteById(idPaciente));
+        }
+
         public List<Paciente> GetAllPaciente()
         {
             return _pacienteRepository.GetAll().ToList();
@@ -34,6 +39,11 @@ namespace Services.ImplClasses
         public Paciente GetPacienteById(int idPaciente)
         {
             return _pacienteRepository.GetOne(idPaciente);
+        }
+
+        public void UpdatePaciente(Paciente p)
+        {
+            _pacienteRepository.Update(p);
         }
     }
 }

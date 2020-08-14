@@ -47,5 +47,15 @@ namespace Services.ImplClasses
             _medicoRepository.Add(m);
         }
 
+        public void UpdateMedico(Medico m)
+        {
+            _medicoRepository.Update(m);
+        }
+
+        public void DeleteMedicoById(int idMedico)
+        {
+            Medico m = GetMedicoById(idMedico);
+            _medicoRepository.Remove(m);
+        }
     }
 }

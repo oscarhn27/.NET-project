@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model.DTOs;
 using Model.Entities;
@@ -41,29 +42,40 @@ namespace Aquaservice.Controllers
             return pDTO;
         }
 
-        [HttpGet("{id}")]
-        public PacienteDTO GetOnePaciente([FromRoute] int idPaciente)
+        [HttpGet("{IdPaciente}")]
+        public PacienteDTO GetOnePaciente([FromRoute] int IdPaciente)
         {
-            Paciente p = _pacienteService.GetPacienteById(idPaciente);
+            Paciente p = _pacienteService.GetPacienteById(IdPaciente);
             return _mapper.Map<PacienteDTO>(p);
         }
-        /*
-        // POST api/<PacienteController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        
+        // POST Paciente/AddPaciente
+        [HttpPost("[action]")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public IActionResult AddPaciente([FromBody] Paciente p)
         {
+            _pacienteService.AddPaciente(p);
+            return Created("El paciente ha sido creado", p);
         }
 
-        // PUT api/<PacienteController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PUT: /Paciente/UpdatePaciente
+        [HttpPut("[action]")]
+        [ProducesResponseType(StatusCodes.Status202Accepted)]
+        public IActionResult UpdatePaciente([FromBody] Paciente p)
         {
+            _pacienteService.UpdatePaciente(p);
+            return Accepted(p);
+
         }
 
-        // DELETE api/<PacienteController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // DELETE: /Paciente/DeletePaciente
+        [HttpDelete("[action]/{IdPaciente}")]
+        [ProducesResponseType(StatusCodes.Status202Accepted)]
+        public IActionResult DeletePaciente([FromRoute] int IdPaciente)
         {
-        }*/
+            _pacienteService.DeletePacienteById(IdPaciente);
+            return Accepted();
+
+        }
     }
 }

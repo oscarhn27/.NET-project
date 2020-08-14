@@ -10,5 +10,7 @@ namespace Services.Interfaces
         List<Paciente> GetAllPaciente();
         Paciente GetPacienteById(int idPaciente);
         void AddPaciente(Paciente p);
+        void UpdatePaciente(Paciente p);
+        void DeletePacienteById(int idPaciente);
     }
 }

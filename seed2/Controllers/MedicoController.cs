@@ -24,8 +24,8 @@ namespace seed2.Controllers
             _mapper = mapper;
         }
 
+        // GET: /Medico
         [HttpGet]
-        //[Transactional]
         public List<MedicoDTO> GetAllMedico() 
         {
             List<Medico> medicos = _medicoService.GetAllMedicos();
@@ -33,14 +33,16 @@ namespace seed2.Controllers
             return mDTO;
         }
 
-        [HttpGet("{id}")]
-        public MedicoDTO GetOneMedico([FromRoute] int id)
+        // GET: /Medico/{idMedico}
+        [HttpGet("{idMedico}")]
+        public MedicoDTO GetOneMedico([FromRoute] int idMedico)
         {
-            Medico medico = _medicoService.GetMedicoById(id);
+            Medico medico = _medicoService.GetMedicoById(idMedico);
             return _mapper.Map<Medico, MedicoDTO>(medico);
 
         }
 
+        // POST: /Medico/AddMedico
         [HttpPost("[action]")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         public IActionResult AddMedico([FromBody] Medico m)
@@ -48,36 +50,25 @@ namespace seed2.Controllers
             _medicoService.AddMedico(m);
             return Created("El medico ha sido creado", m);
         }
-        /*
-        [HttpGet("[action]")]
-        public DataCollection<MedicoDTO> PagedMedico()
-        {
-            DataCollection<MedicoDTO> medicos = _medicoService.GetPaged(1, 10);
-            return medicos;
 
-        }
-
+        // PUT: /Medico/UpdateMedico
         [HttpPut("[action]")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult UpdateMedico([FromBody] MedicoDTO medico)
+        [ProducesResponseType(StatusCodes.Status202Accepted)]
+        public IActionResult UpdateMedico([FromBody] Medico m)
         {
-            _medicoService.Update(medico);
-             return Ok();
+            _medicoService.UpdateMedico(m);
+            return Accepted(m);
 
         }
 
-
-        
-
-
-        [HttpDelete("[action]")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult DeleteMedico([FromBody] MedicoDTO medico)
+        // DELETE: /Medico/DeleteMedico
+        [HttpDelete("[action]/{IdMedico}")]
+        [ProducesResponseType(StatusCodes.Status202Accepted)]
+        public IActionResult DeleteMedico([FromRoute] int IdMedico)
         {
-            _medicoService.Remove(medico);
-            return Ok();
+            _medicoService.DeleteMedicoById(IdMedico);
+            return Accepted();
 
-        }*/
-
+        }
     }
 }

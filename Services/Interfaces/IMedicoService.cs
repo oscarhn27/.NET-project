@@ -17,5 +17,7 @@ namespace Services.Interfaces
         List<Medico> GetAllMedicos();
         Medico GetMedicoById(int idMedico);
         void AddMedico(Medico m);
+        void UpdateMedico(Medico m);
+        void DeleteMedicoById(int idMedico);
     }
 }
